@@ -142,4 +142,28 @@ public class PolynomialImpl implements Polynomial {
    }
    return degree;
   }
-}
+  
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    PolynomialImpl temp = this;
+    
+    while (temp != null) {
+      if (temp.coefficient != 0) {
+        if(sb.length() > 0) {
+          sb.append(" + ");
+        }
+        sb.append(temp.coefficient);
+        if (temp.exp > 0) {
+          sb.append("x^").append(temp.exp);
+        }
+        }
+      temp = temp.terms;
+      }
+    if (sb.length() == 0) {
+      return "0";
+    }
+    return sb.toString().trim();
+  }
+  }
+
