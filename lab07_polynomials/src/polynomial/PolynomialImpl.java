@@ -99,11 +99,21 @@ public class PolynomialImpl implements Polynomial {
     return isSameCheck(poly1.terms, poly2.terms);
   }
 
-	@Override
-	public double evaluate(double x) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+  @Override
+  public double evaluate(double x) {
+    if (this.exp == -1) {
+      return 0;
+    }
+    double total = 0;
+    double firstTerm = this.coefficient * Math.pow(x, this.exp);                                
+    total = total + firstTerm;
+    
+    if (this.terms != null) {
+      double rest = this.terms.evaluate(x);
+      total = total + rest;
+    }
+    return total;
+  }
 
 	@Override
 	public int getCoefficient(int power) {
