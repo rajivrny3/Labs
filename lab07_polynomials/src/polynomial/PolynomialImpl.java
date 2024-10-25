@@ -73,11 +73,31 @@ public class PolynomialImpl implements Polynomial {
     }
   }
 
-	@Override
-	public boolean isSame(Polynomial poly) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+  @Override
+  public boolean isSame(Polynomial poly) {
+    if (!(poly instanceof PolynomialImpl)) {
+      return false;
+    }
+    PolynomialImpl other = (PolynomialImpl) poly;
+    
+    return isSameCheck(this, other);
+  }
+  
+  private boolean isSameCheck(PolynomialImpl poly1, PolynomialImpl poly2) {
+    if (poly1 == null && poly2 == null) {
+      return true;
+    }
+    
+    if (poly1 == null || poly2 == null) {
+      return false;
+    }
+    
+    if (poly1.coefficient != poly2.coefficient || poly1.exp != poly2.exp) {
+      return false;
+    }
+    
+    return isSameCheck(poly1.terms, poly2.terms);
+  }
 
 	@Override
 	public double evaluate(double x) {
