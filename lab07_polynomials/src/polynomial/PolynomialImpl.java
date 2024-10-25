@@ -36,6 +36,7 @@ public class PolynomialImpl implements Polynomial {
     if (this.exp == -1) {
       this.exp = power;
       this.coefficient = coefficient;
+      this.terms = new PolynomialImpl();
     }
   }
 
