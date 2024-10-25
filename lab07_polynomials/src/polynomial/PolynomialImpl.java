@@ -9,9 +9,16 @@ public class PolynomialImpl implements Polynomial {
     if (exp < 0 ) {
       throw new IllegalArgumentException("For this implementation, negative exponents are not accepted.");
     }
-    this.coefficient = coefficient;
-    this.exp = exp;
-    this.terms = terms;
+    if (coefficient == 0 && terms == null) {
+      this.coefficient = 0;
+      this.exp = 0;
+      this.terms = null;
+    } else {
+        this.coefficient = coefficient;
+        this.exp = exp;
+        this.terms = terms;
+    }
+  }
 
 	@Override
 	public Polynomial add(Polynomial other) throws IllegalArgumentException {
