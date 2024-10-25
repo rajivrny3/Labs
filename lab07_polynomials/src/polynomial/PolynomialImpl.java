@@ -9,15 +9,15 @@ public class PolynomialImpl implements Polynomial {
     if (exp < 0 ) {
       throw new IllegalArgumentException("For this implementation, negative exponents are not accepted.");
     }
-    if (coefficient == 0 && terms == null) {
-      this.coefficient = 0;
-      this.exp = 0;
-      this.terms = null;
-    } else {
-        this.coefficient = coefficient;
-        this.exp = exp;
-        this.terms = terms;
-    }
+    this.coefficient = 0;
+    this.exp = 0;
+    this.terms = null;
+  }
+  
+  public PolynomialImpl() {
+    this.coefficient = 0;
+    this.exp = -1;
+    this.terms = null;
   }
 
   @Override
@@ -27,7 +27,12 @@ public class PolynomialImpl implements Polynomial {
 
   @Override
   public void addTerm(int coefficient, int power) throws IllegalArgumentException {
-    // TODO Auto-generated method stub
+    if (power < 0) {
+      throw new IllegalArgumentException("For this implementation, negative exponents are not accepted.");
+    }
+    if (coefficient == 0) {
+      return;
+    }
   }
 
 	@Override
