@@ -36,8 +36,10 @@ public class PolynomialImpl implements Polynomial {
      
      temp = otherClone;
      while(temp.exp != -1) {
-       
+       output.addTerm(temp.coefficient, temp.exp);
+       temp = temp.terms;
      }
+     return output;
   }
 
   @Override
