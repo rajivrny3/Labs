@@ -40,10 +40,17 @@ public class PolynomialImpl implements Polynomial {
 
     } else if (this.exp == power) {
         this.coefficient = this.coefficient + coefficient;
+        if (this.coefficient == 0) {
+          this.exp = this.terms.exp;
+          this.coefficient = this.terms.coefficient;
+          this.terms = this.terms.terms;
+        }
+        
     } else if (this.exp < power) {
         this.terms = new PolynomialImpl(this.coefficient, this.exp, this.terms);
         this.coefficient = coefficient;
         this.exp = power;
+        
     } else {
         this.terms.addTerm(coefficient, power);
     }
