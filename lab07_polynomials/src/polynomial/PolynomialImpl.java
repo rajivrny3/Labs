@@ -1,9 +1,18 @@
 package polynomial;
 
 public class PolynomialImpl implements Polynomial {
-	PolynomialImp1 terms;
-	int coefficient = 0;;
-	int exp = -1;
+  private int coefficient;
+  private int exp;
+  PolynomialImpl terms;
+	
+  public PolynomialImpl(int coefficient, int exp, PolynomialImpl terms) {
+    if (exp < 0 ) {
+      throw new IllegalArgumentException("For this implementation, negative exponents are not accepted.");
+    }
+    this.coefficient = coefficient;
+    this.exp = exp;
+    this.terms = terms;
+  }
 
 	@Override
 	public Polynomial add(Polynomial other) throws IllegalArgumentException {
