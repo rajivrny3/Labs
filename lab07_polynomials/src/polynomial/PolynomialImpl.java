@@ -37,6 +37,15 @@ public class PolynomialImpl implements Polynomial {
       this.exp = power;
       this.coefficient = coefficient;
       this.terms = new PolynomialImpl();
+
+    } else if (this.exp == power) {
+        this.coefficient = this.coefficient + coefficient;
+    } else if (this.exp < power) {
+        this.terms = new PolynomialImpl(this.coefficient, this.exp, this.terms);
+        this.coefficient = coefficient;
+        this.exp = power;
+    } else {
+        this.terms.addTerm(coefficient, power);
     }
   }
 
