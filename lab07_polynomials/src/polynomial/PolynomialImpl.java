@@ -25,6 +25,19 @@ public class PolynomialImpl implements Polynomial {
     if (!(other instanceof PolynomialImpl)) {
       throw new IllegalArgumentException("other must be of type PolynomialImpl");
     }
+    Polynomial output = new PolynomialImpl();
+    PolynomialImpl otherClone = (PolynomialImpl) other;
+    
+    PolynomialImpl temp = this;
+     while(temp.exp != -1) {
+       output.addTerm(temp.coefficient, temp.exp);
+       temp = temp.terms;
+     }
+     
+     temp = otherClone;
+     while(temp.exp != -1) {
+       
+     }
   }
 
   @Override
