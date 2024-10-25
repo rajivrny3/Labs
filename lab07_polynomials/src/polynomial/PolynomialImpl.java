@@ -33,6 +33,10 @@ public class PolynomialImpl implements Polynomial {
     if (coefficient == 0) {
       return;
     }
+    if (this.exp == -1) {
+      this.exp = power;
+      this.coefficient = coefficient;
+    }
   }
 
 	@Override
