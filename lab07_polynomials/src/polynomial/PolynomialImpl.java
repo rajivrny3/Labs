@@ -22,7 +22,9 @@ public class PolynomialImpl implements Polynomial {
 
   @Override
   public Polynomial add(Polynomial other) throws IllegalArgumentException {
-    return null;
+    if (!(other instanceof PolynomialImpl)) {
+      throw new IllegalArgumentException("other must be of type PolynomialImpl");
+    }
   }
 
   @Override
