@@ -115,11 +115,17 @@ public class PolynomialImpl implements Polynomial {
     return total;
   }
 
-	@Override
-	public int getCoefficient(int power) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+  @Override
+  public int getCoefficient(int power) {
+    if (this.exp == power) {
+      return this.coefficient;
+    }
+    
+    if (this.terms == null) {
+      return 0;
+    }
+    return this.terms.getCoefficient(power);
+  }
 
 	@Override
 	public int getDegree() {
