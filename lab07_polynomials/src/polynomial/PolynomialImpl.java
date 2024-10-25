@@ -12,11 +12,6 @@ public class PolynomialImpl implements Polynomial {
     this.coefficient = coefficient;
     this.exp = exp;
     this.terms = terms;
-  }
-  
-  public PolynomialImpl() {
-    
-  }
 
 	@Override
 	public Polynomial add(Polynomial other) throws IllegalArgumentException {
