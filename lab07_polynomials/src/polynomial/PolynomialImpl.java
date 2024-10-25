@@ -1,19 +1,33 @@
 package polynomial;
 
+/**
+ * Represents a term within a polynomial.
+ */
 public class PolynomialImpl implements Polynomial {
+  private PolynomialImpl terms;
   private int coefficient;
   private int exp;
-  PolynomialImpl terms;
-	
+  
+  /**
+  * Creates an instance of a polynomial object and represents a term.
+   * 
+   * @param coefficient is the coefficient for this term in the polynomial.
+   * @param exp is the exponent for this term in the polynomial.
+   * @param terms is the rest of the terms in the rest of the polynomial.
+   */
   public PolynomialImpl(int coefficient, int exp, PolynomialImpl terms) {
-    if (exp < 0 ) {
-      throw new IllegalArgumentException("For this implementation, negative exponents are not accepted.");
+    if (exp < 0) {
+      throw new IllegalArgumentException("For this "
+        + "implementation, negative exponents are not accepted.");
     }
     this.coefficient = 0;
     this.exp = 0;
     this.terms = null;
   }
   
+  /**
+   * Constructor for an empty polynomial.
+   */
   public PolynomialImpl() {
     this.coefficient = 0;
     this.exp = -1;
@@ -29,23 +43,24 @@ public class PolynomialImpl implements Polynomial {
     PolynomialImpl otherClone = (PolynomialImpl) other;
     
     PolynomialImpl temp = this;
-     while(temp.exp != -1) {
-       output.addTerm(temp.coefficient, temp.exp);
-       temp = temp.terms;
-     }
+    while (temp.exp != -1) {
+      output.addTerm(temp.coefficient, temp.exp);
+      temp = temp.terms;
+    }
      
-     temp = otherClone;
-     while(temp.exp != -1) {
-       output.addTerm(temp.coefficient, temp.exp);
-       temp = temp.terms;
-     }
-     return output;
+    temp = otherClone;
+    while (temp.exp != -1) {
+      output.addTerm(temp.coefficient, temp.exp);
+      temp = temp.terms;
+    }
+    return output;
   }
 
   @Override
   public void addTerm(int coefficient, int power) throws IllegalArgumentException {
     if (power < 0) {
-      throw new IllegalArgumentException("For this implementation, negative exponents are not accepted.");
+      throw new IllegalArgumentException("For this implementation, "
+         + "negative exponents are not accepted.");
     }
     if (coefficient == 0) {
       return;
@@ -56,20 +71,20 @@ public class PolynomialImpl implements Polynomial {
       this.terms = new PolynomialImpl();
 
     } else if (this.exp == power) {
-        this.coefficient = this.coefficient + coefficient;
-        if (this.coefficient == 0) {
-          this.exp = this.terms.exp;
-          this.coefficient = this.terms.coefficient;
-          this.terms = this.terms.terms;
-        }
+      this.coefficient = this.coefficient + coefficient;
+      if (this.coefficient == 0) {
+        this.exp = this.terms.exp;
+        this.coefficient = this.terms.coefficient;
+        this.terms = this.terms.terms;
+      }
         
     } else if (this.exp < power) {
-        this.terms = new PolynomialImpl(this.coefficient, this.exp, this.terms);
-        this.coefficient = coefficient;
-        this.exp = power;
+      this.terms = new PolynomialImpl(this.coefficient, this.exp, this.terms);
+      this.coefficient = coefficient;
+      this.exp = power;
         
     } else {
-        this.terms.addTerm(coefficient, power);
+      this.terms.addTerm(coefficient, power);
     }
   }
 
@@ -129,18 +144,18 @@ public class PolynomialImpl implements Polynomial {
 
   @Override
   public int getDegree() {
-   if (this.exp == -1) {
+    if (this.exp == -1) {
       throw new IllegalStateException("The degree of this polynomial is undefined.");
-   }
-   int degree = this.exp;
+    }
+    int degree = this.exp;
    
-   if (this.terms != null) {
-     int restDegree = this.terms.getDegree();
-     if (restDegree > degree) {
-         degree = restDegree;
-     }
-   }
-   return degree;
+    if (this.terms != null) {
+      int restDegree = this.terms.getDegree();
+      if (restDegree > degree) {
+        degree = restDegree;
+      }
+    }
+    return degree;
   }
   
   @Override
@@ -150,20 +165,20 @@ public class PolynomialImpl implements Polynomial {
     
     while (temp != null) {
       if (temp.coefficient != 0) {
-        if(sb.length() > 0) {
+        if (sb.length() > 0) {
           sb.append(" + ");
         }
         sb.append(temp.coefficient);
         if (temp.exp > 0) {
           sb.append("x^").append(temp.exp);
         }
-        }
-      temp = temp.terms;
       }
+      temp = temp.terms;
+    }
     if (sb.length() == 0) {
       return "0";
     }
     return sb.toString().trim();
   }
-  }
+}
 
