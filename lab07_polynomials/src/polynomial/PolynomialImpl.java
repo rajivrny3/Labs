@@ -25,11 +25,10 @@ public class PolynomialImpl implements Polynomial {
     return null;
   }
 
-	@Override
-	public void addTerm(int coefficient, int power) throws IllegalArgumentException {
-		// TODO Auto-generated method stub
-
-	}
+  @Override
+  public void addTerm(int coefficient, int power) throws IllegalArgumentException {
+    // TODO Auto-generated method stub
+  }
 
 	@Override
 	public boolean isSame(Polynomial poly) {
