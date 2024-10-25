@@ -1,6 +1,9 @@
 package polynomial;
 
 public class PolynomialImpl implements Polynomial {
+	PolynomialImp1 terms;
+	int coefficient = 0;;
+	int exp = -1;
 
 	@Override
 	public Polynomial add(Polynomial other) throws IllegalArgumentException {
