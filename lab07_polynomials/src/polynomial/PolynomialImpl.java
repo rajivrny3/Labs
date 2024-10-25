@@ -1,6 +1,6 @@
 package polynomial;
 
-public class PolynomialImp1 implements Polynomial {
+public class PolynomialImpl implements Polynomial {
 
 	@Override
 	public Polynomial add(Polynomial other) throws IllegalArgumentException {
