@@ -127,10 +127,19 @@ public class PolynomialImpl implements Polynomial {
     return this.terms.getCoefficient(power);
   }
 
-	@Override
-	public int getDegree() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+  @Override
+  public int getDegree() {
+   if (this.exp == -1) {
+      throw new IllegalStateException("The degree of this polynomial is undefined.");
+   }
+   int degree = this.exp;
+   
+   if (this.terms != null) {
+     int restDegree = this.terms.getDegree();
+     if (restDegree > degree) {
+         degree = restDegree;
+     }
+   }
+   return degree;
+  }
 }
