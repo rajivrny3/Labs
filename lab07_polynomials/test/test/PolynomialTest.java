@@ -48,6 +48,6 @@ public class PolynomialTest {
   
   @Test
   public void testPoly() {
-    assertEquals("4x^3 + 3x^1 -5", poly.toString());
+    assertEquals("4x^3 + 3x^1-5", poly.toString());
   }
 }
