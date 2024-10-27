@@ -171,7 +171,7 @@ public class PolynomialImpl implements Polynomial {
     
     while (temp != null) {
       if (temp.coefficient != 0) {
-        if (sb.length() > 0) {
+        if (sb.length() > 0 && temp.coefficient > 0) {
           sb.append(" + ");
         }
         sb.append(temp.coefficient);

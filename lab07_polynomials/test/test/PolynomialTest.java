@@ -42,6 +42,12 @@ public class PolynomialTest {
   }
   
   @Test
-  public void test() {
+  public void emptyPolynomialImpl() {
+    assertEquals("0", empty.toString());
+  }
+  
+  @Test
+  public void testPoly() {
+    assertEquals("4x^3 + 3x^1 -5", poly.toString());
   }
 }
