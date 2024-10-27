@@ -16,6 +16,9 @@ public class PolynomialImpl implements Polynomial {
    * @param terms is the rest of the terms in the rest of the polynomial.
    */
   public PolynomialImpl(int coefficient, int exp, PolynomialImpl terms) {
+    if (terms == null) {
+      throw new IllegalArgumentException("Polynomial cannot be null");
+    }
     if (exp < 0) {
       throw new IllegalArgumentException("For this "
         + "implementation, negative exponents are not accepted.");
