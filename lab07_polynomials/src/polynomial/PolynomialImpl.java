@@ -17,7 +17,7 @@ public class PolynomialImpl implements Polynomial {
    */
   public PolynomialImpl(int coefficient, int exp, PolynomialImpl terms) {
     if (terms == null) {
-      throw new IllegalArgumentException("Polynomial cannot be null");
+      throw new IllegalArgumentException("Polynomial cannot be null.");
     }
     if (exp < 0) {
       throw new IllegalArgumentException("For this "
@@ -93,6 +93,9 @@ public class PolynomialImpl implements Polynomial {
 
   @Override
   public boolean isSame(Polynomial poly) {
+    if (poly == null) {
+      throw new IllegalArgumentException("Polynomial cannot be null.");
+    }
     if (!(poly instanceof PolynomialImpl)) {
       return false;
     }
