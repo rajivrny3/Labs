@@ -15,7 +15,7 @@ public class PolynomialImpl implements Polynomial {
    * @param exp is the exponent for this term in the polynomial.
    * @param terms is the rest of the terms in the rest of the polynomial.
    */
-  public PolynomialImpl(int coefficient, int exp, PolynomialImpl terms) {
+  public PolynomialImpl(int coefficient, int exp, Polynomial terms) {
     if (terms == null) {
       throw new IllegalArgumentException("Polynomial cannot be null.");
     }
@@ -25,7 +25,7 @@ public class PolynomialImpl implements Polynomial {
     }
     this.coefficient = coefficient;
     this.exp = exp;
-    this.terms = terms;
+    this.terms = (PolynomialImpl) terms;
   }
   
   /**
@@ -172,7 +172,9 @@ public class PolynomialImpl implements Polynomial {
     while (temp != null) {
       if (temp.coefficient != 0) {
         if (sb.length() > 0 && temp.coefficient > 0) {
-          sb.append(" + ");
+          sb.append(" +");
+        } else {
+          sb.append(" ");
         }
         sb.append(temp.coefficient);
         if (temp.exp > 0) {

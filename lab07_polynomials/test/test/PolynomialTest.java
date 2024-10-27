@@ -48,6 +48,31 @@ public class PolynomialTest {
   
   @Test
   public void testPoly() {
-    assertEquals("4x^3 + 3x^1-5", poly.toString());
+    assertEquals("4x^3 +3x^1 -5", poly.toString());
+  }
+  
+  @Test
+  public void numericTermTest() {
+    assertEquals("-102", numericTerm.toString());
+  }
+  
+  @Test
+  public void negativeTest() {
+    assertEquals("-3x^4 -2x^5 -5 -2x^4 +11x^1", negative.toString());
+  }
+  
+  @Test
+  public void differentDegreeTest() {
+    assertEquals("3x^5 +2x^2", differentDegree.toString());
+  }
+  
+  @Test(expected = IllegalArgumentException.class)
+  public void polynomialNullTest() {
+    Polynomial test = new PolynomialImpl(1, 1, null);
+  }
+  
+  @Test(expected = IllegalArgumentException.class)
+  public void polynomialNegativeExpTest() {
+    Polynomial test = new PolynomialImpl(1, -1, empty);
   }
 }
