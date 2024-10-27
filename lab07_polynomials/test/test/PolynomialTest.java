@@ -75,4 +75,22 @@ public class PolynomialTest {
   public void polynomialNegativeExpTest() {
     Polynomial test = new PolynomialImpl(1, -1, empty);
   }
+  
+  @Test
+  public void polynomialAddNormal() {
+    Polynomial test = poly.add(differentDegree);
+    assertEquals("3x^5 +4x^3 +2x^2 +3x^1 -5", test.toString());
+  }
+  
+  @Test
+  public void polynomialAddEmpty() {
+    Polynomial test = poly.add(empty);
+    assertEquals(poly.toString(), test.toString());
+  }
+  
+  @Test
+  public void polynomialAddNegative() {
+    Polynomial test = poly.add(negative);
+    assertEquals("-2x^5 -5x^4 +4x^3 +14x^1 -10", test.toString());
+  }
 }
