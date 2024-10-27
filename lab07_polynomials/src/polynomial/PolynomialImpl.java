@@ -1,5 +1,7 @@
 package polynomial;
 
+import java.util.Scanner;
+
 /**
  * Represents a term within a polynomial.
  */
@@ -34,6 +36,19 @@ public class PolynomialImpl implements Polynomial {
   public PolynomialImpl() {
     this.coefficient = 0;
     this.exp = -1;
+    this.terms = null;
+  }
+  
+  /**
+   * Creates a polynomial object from a String.
+   * @param polyString A string that represents a polynomial.
+   */
+  public PolynomialImpl(String polyString) {
+    if (terms == null) {
+      throw new IllegalArgumentException("Polynomial cannot be null.");
+    }
+    this.coefficient = 0;
+    this.exp = - 1;
     this.terms = null;
   }
 
