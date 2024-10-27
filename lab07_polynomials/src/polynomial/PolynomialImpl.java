@@ -20,9 +20,9 @@ public class PolynomialImpl implements Polynomial {
       throw new IllegalArgumentException("For this "
         + "implementation, negative exponents are not accepted.");
     }
-    this.coefficient = 0;
-    this.exp = 0;
-    this.terms = null;
+    this.coefficient = coefficient;
+    this.exp = exp;
+    this.terms = terms;
   }
   
   /**

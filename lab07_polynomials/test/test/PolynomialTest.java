@@ -19,7 +19,9 @@ public class PolynomialTest {
   
   @Before
   public void setup() {
+    empty = new PolynomialImpl();
     
+    poly =  new PolynomialImpl()
   }
   
   @Test
